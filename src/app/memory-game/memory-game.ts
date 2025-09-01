@@ -1,6 +1,5 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { ValueChangeEvent } from '@angular/forms';
 
 interface Card {
   value: string;
@@ -18,23 +17,34 @@ export class MemoryGame {
 
   flippedIndexes: number[] = [];
   cards: Card[] = [
-  {value: 'A', flipped: false , matched: false},
-  {value: 'A', flipped: false , matched: false},
-  {value: 'B', flipped: false , matched: false},
-  {value: 'B', flipped: false , matched: false},
-  {value: 'C', flipped: false , matched: false},
-  {value: 'C', flipped: false , matched: false},
-  {value: 'D', flipped: false , matched: false},
-  {value: 'D', flipped: false , matched: false},
-  {value: 'E', flipped: false , matched: false},
-  {value: 'E', flipped: false , matched: false},
-  {value: 'F', flipped: false , matched: false},
-  {value: 'F', flipped: false , matched: false},
-  {value: 'G', flipped: false , matched: false},
-  {value: 'G', flipped: false , matched: false},
-  {value: 'H', flipped: false , matched: false},
-  {value: 'H', flipped: false , matched: false},
- ];
+    {value: '/images/apple.webp', flipped: false , matched: false},
+    {value: '/images/apple.webp', flipped: false , matched: false},
+    {value: '/images/bird.webp', flipped: false , matched: false},
+    {value: '/images/bird.webp', flipped: false , matched: false},
+    {value: '/images/book.webp', flipped: false , matched: false},
+    {value: '/images/book.webp', flipped: false , matched: false},
+    {value: '/images/car.webp', flipped: false , matched: false},
+    {value: '/images/car.webp', flipped: false , matched: false},
+    {value: '/images/chuchu.webp', flipped: false , matched: false},
+    {value: '/images/chuchu.webp', flipped: false , matched: false},
+    {value: '/images/cloud.webp', flipped: false , matched: false},
+    {value: '/images/cloud.webp', flipped: false , matched: false},
+    {value: '/images/cup.webp', flipped: false , matched: false},
+    {value: '/images/cup.webp', flipped: false , matched: false},
+    {value: '/images/dog.webp', flipped: false , matched: false},
+    {value: '/images/dog.webp', flipped: false , matched: false},
+  ];
+
+  constructor() {
+    this.shuffleCards();
+  }
+
+  private shuffleCards(): void {
+    for (let i = this.cards.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [this.cards[i], this.cards[j]] = [this.cards[j], this.cards[i]];
+    }
+  }
 
  flipCard(index: number): void {
     const card = this.cards[index];

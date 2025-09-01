@@ -15,11 +15,12 @@
             class="card"
             *ngFor="let card of cards; let i= index"
             [class.flipped]="card.flipped"
+            [class.matched]="card.matched"
             (click)="flipCard(i)"
         >
             <div class="card-inner">
                 <div class="card-front">?</div>
-                <div class="card-back">{{ card.value }}</div>
+                <div class="card-back"><img [src]="card.value" alt="Card image"></div>
             </div>
         </div> 
               
