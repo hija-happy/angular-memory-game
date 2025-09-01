@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Game</title>
+</head>
+<body>
+    <!-- <h1>Memory Game</h1>
+    <p>Welcome to the Memory Game!</p> -->
+
+    <div class="game-board">
+        <div 
+            class="card"
+            *ngFor="let card of cards; let i= index"
+            [class.flipped]="card.flipped"
+            (click)="flipCard(i)"
+        >
+            <div class="card-inner">
+                <div class="card-front">?</div>
+                <div class="card-back">{{ card.value }}</div>
+            </div>
+        </div> 
+              
+
+    </div>
+</body>
+</html>
